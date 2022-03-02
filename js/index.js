@@ -34,6 +34,36 @@ const sendTask = async (content) =>
     .then((res) => res.json())
     .then((data) => data);
 
-getTasks().then((data) => {
-  tasksToDOM(data);
-});
+getTasks()
+  .then((data) => {
+    tasksToDOM(data);
+  })
+  .catch((e) => console.log(e));
+
+const deleteTask = async (id) => {
+  console.log(typeof id);
+  await fetch(URL + `/tasks/${id}?` + apiKey, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((res) => res && console.log(`${id} deleted`));
+
+  totalToDom();
+};
+
+updateTaskActive = async (id) => {
+  await fetch(URL + `/tasks/${id}/mark_active?` + apiKey, {
+    method: "PUT",
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+};
+
+updateTaskComplete = async (id) => {
+  await fetch(URL + `/tasks/${id}/mark_complete?` + apiKey, {
+    method: "PUT",
+  })
+    .then((res) => res.json())
+    .then((d) => console.log("updated"))
+    .catch((e) => console.log(e));
+};

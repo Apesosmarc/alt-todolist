@@ -1,10 +1,21 @@
-submit.addEventListener("submit", (e) => {
+submitForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  sendTask(e.currentTarget[0].value).then((data) => {
+  if (e.target[0].value === "") return;
+
+  sendTask(e.target[0].value).then((data) => {
     taskToDom(data.task);
     totalToDom();
   });
 
-  submit[0].value = "";
+  submitForm[0].value = "";
+});
+
+clearBtn.addEventListener("click", () => {
+  const checked = tasksId.querySelectorAll(".checked");
+
+  checked.forEach((input) => {
+    removeFromDOM(input);
+    deleteTask(input.attributes.data.value);
+  });
 });

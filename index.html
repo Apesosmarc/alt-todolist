@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>To Do List</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="./js/selectors.js" defer></script>
     <script src="./js/index.js" defer></script>
     <script src="./js/DOM.js" defer></script>
@@ -12,18 +12,25 @@
 
 </head>
 <body>
+    <div class="container">
+        
 
-<span id="total"></span>
 
-<div id="tasks">
+        <div id="tasks"></div>
+
+        <form id="taskForm">
+            <label for="task"></label>
+            <input for="task" id="task" placeholder="new task">
+            <br>
+            <button id="clear">Clear Completed</button>
+            <br>
+            <span id="total"> </span>
+        </form>
+
+    </div>
+
+
     
-</div>
 
-<form id="taskForm">
-    <label for="task"></label>
-    <input for="task" id="task" placeholder="new task">
-    <button type="submit">submit</button>
-</form>
-    
 </body>
 </html>
