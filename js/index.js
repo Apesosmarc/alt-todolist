@@ -14,6 +14,8 @@ const getTasks = async () =>
     .then((res) => res.json())
     .then((data) => {
       tasks = data;
+
+      console.log(data);
       return data;
     });
 

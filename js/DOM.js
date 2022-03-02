@@ -52,8 +52,15 @@ const createActiveBtn = (task) => {
   const active = document.createElement("input");
   active.setAttribute("type", "checkbox");
   active.setAttribute("data", task.id);
-  active.setAttribute("aria-label", "incomplete");
   active.classList.add("completed");
+
+  if (task.completed) {
+    active.checked = true;
+    active.classList.add("checked");
+    active.setAttribute("aria-label", "complete");
+  } else {
+    active.setAttribute("aria-label", "incomplete");
+  }
 
   return active;
 };
